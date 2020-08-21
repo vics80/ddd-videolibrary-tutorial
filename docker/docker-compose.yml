@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  api:
+    build: api
+    volumes:
+      - ../code:/var/www/html/videolibrary
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ../code:/var/www/html/videolibrary
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ../log:/var/log/videolibrary
+    links:
+      - api

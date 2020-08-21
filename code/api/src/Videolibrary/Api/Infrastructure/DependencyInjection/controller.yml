@@ -1,0 +1,4 @@
+services:
+  api.controller.videos.getVideos:
+    class: Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos\GetVideosController
+    public: true
