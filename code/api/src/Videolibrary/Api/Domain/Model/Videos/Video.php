@@ -9,12 +9,14 @@ class Video
     private VideoId $id;
     private string $title;
     private int $duration;
+    private Status $status;
 
-    public function __construct(VideoId $id, string $title, int $duration)
+    public function __construct(VideoId $id, string $title, int $duration, Status $status)
     {
         $this->id = $id;
         $this->title = $title;
         $this->duration = $duration;
+        $this->status = $status;
     }
 
     public function id(): VideoId
@@ -30,6 +32,11 @@ class Video
     public function duration(): int
     {
         return $this->duration;
+    }
+
+    public function status(): Status
+    {
+        return $this->status;
     }
 
 

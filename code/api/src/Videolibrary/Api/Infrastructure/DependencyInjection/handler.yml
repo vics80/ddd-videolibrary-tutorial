@@ -1,0 +1,5 @@
+services:
+  api.query.video.getVideosHandler:
+    class: Videolibrary\Api\Application\Query\Video\GetVideosHandler
+    arguments:
+      - '@api.repository.inMemoryVideoRepository'
