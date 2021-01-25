@@ -6,30 +6,32 @@ namespace Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Videolibrary\Api\Application\Query\Video\GetVideosHandler;
-use Videolibrary\Api\Application\Request\Video\GetVideosRequest;
+use Videolibrary\Api\Application\Command\Video\CreateVideoHandler;
+use Videolibrary\Api\Application\Request\Video\CreateVideoRequest;
 use Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
 
-class GetVideosController
+class CreateVideoController
 {
-    private GetVideosHandler $getVideosHandler;
+    private CreateVideoHandler $createVideoHandler;
 
-    public function __construct(GetVideosHandler $getVideosHandler)
+    public function __construct(CreateVideoHandler $createVideoHandler)
     {
-        $this->getVideosHandler = $getVideosHandler;
+        $this->createVideoHandler = $createVideoHandler;
     }
 
     public function __invoke(Request $request)
     {
         try {
-            $videos = ($this->getVideosHandler)(
-                new GetVideosRequest($request->get('status', 'published'))
-            );
+            $video = ($this->createVideoHandler)(new CreateVideoRequest(
+                $request->get('title'),
+                $request->get('duration'),
+                $request->get('status')
+            ));
 
             $response = new JsonResponse([
                 'status' => 'ok',
                 'hits' => [
-                    $videos->toArray(),
+                    $video->toArray(),
                 ]
             ]);
         } catch (InvalidStatusValueException $e) {

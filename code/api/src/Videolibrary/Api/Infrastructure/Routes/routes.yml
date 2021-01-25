@@ -2,3 +2,7 @@ api.getVideoById:
   path: /videos
   controller: 'api.controller.videos.getVideos'
   methods: [GET]
+api.createVideo:
+  path: /videos
+  controller: 'api.controller.videos.createVideo'
+  methods: [POST]

@@ -1,0 +1,10 @@
+<doctrine-mapping>
+    <entity name="Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Video" table="video">
+        <id name="id" type="guid" />
+        <field name="title" type="string" length="300" />
+        <field name="duration" type="integer" length="300" />
+        <field name="status" type="string" length="20" />
+        <field name="createdAt" type="datetime" />
+        <field name="updatedAt" type="datetime" />
+    </entity>
+</doctrine-mapping>

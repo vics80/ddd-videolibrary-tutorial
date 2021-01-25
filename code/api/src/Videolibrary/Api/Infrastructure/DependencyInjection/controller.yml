@@ -4,3 +4,8 @@ services:
     arguments:
       - '@api.query.video.getVideosHandler'
     public: true
+  api.controller.videos.createVideo:
+    class: Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos\CreateVideoController
+    arguments:
+      - '@api.command.video.createVideoHandler'
+    public: true

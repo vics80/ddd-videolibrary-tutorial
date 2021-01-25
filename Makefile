@@ -20,6 +20,6 @@ reload:
 	$(COMPOSE) build
 	$(COMPOSE) up -d
 bash:
-	$(COMPOSE) run --rm api bash
+	$(COMPOSE) run --rm api-videolibrary bash
 autoload:
-	$(COMPOSE) run --rm api composer dump-autoload
+	$(COMPOSE) run --rm api-videolibrary composer dump-autoload

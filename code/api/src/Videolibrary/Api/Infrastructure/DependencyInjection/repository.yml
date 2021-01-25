@@ -1,3 +1,7 @@
 services:
     api.repository.inMemoryVideoRepository:
         class: Videolibrary\Api\Infrastructure\Persistence\InMemory\Repository\InMemoryVideoRepository
+    api.repository.doctrineVideoRepository:
+        class: Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository\DoctrineVideoRepository
+        arguments:
+            - '@doctrine.orm.default_entity_manager'

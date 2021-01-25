@@ -52,6 +52,12 @@ class InMemoryVideoRepository implements VideoRepository
         );
     }
 
+    public function insert(Video $video): void
+    {
+        // TODO: Implement insert() method.
+    }
+
+
     public function findByStatus(Status $status): VideoCollection
     {
         $videoCollection = new VideoCollection();

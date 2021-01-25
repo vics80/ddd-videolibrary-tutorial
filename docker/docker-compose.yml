@@ -1,10 +1,12 @@
 version: '3.6'
 services:
-  api:
+  api-videolibrary:
     build: api
     volumes:
       - ../code:/var/www/html/videolibrary
-  nginx:
+    links:
+      - db-videolibrary
+  nginx-videolibrary:
     image: nginx:latest
     ports:
       - "80:80"
@@ -13,4 +15,14 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ../log:/var/log/videolibrary
     links:
-      - api
+      - api-videolibrary
+  db-videolibrary:
+    image: library/mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=videolibrary
+      - MYSQL_USER=videolibrary_user
+      - MYSQL_PASSWORD=1234

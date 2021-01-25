@@ -10,6 +10,8 @@ class Video
     private string $title;
     private int $duration;
     private Status $status;
+    private \DateTimeImmutable $createdAt;
+    private \DateTime $updatedAt;
 
     public function __construct(VideoId $id, string $title, int $duration, Status $status)
     {
@@ -17,6 +19,8 @@ class Video
         $this->title = $title;
         $this->duration = $duration;
         $this->status = $status;
+        $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTime();
     }
 
     public function id(): VideoId
@@ -39,5 +43,14 @@ class Video
         return $this->status;
     }
 
+    public function createdAt(): \DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function updatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
 
 }
