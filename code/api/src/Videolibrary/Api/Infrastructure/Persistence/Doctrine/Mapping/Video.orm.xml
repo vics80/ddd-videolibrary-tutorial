@@ -6,5 +6,13 @@
         <field name="status" type="string" length="20" />
         <field name="createdAt" type="datetime" />
         <field name="updatedAt" type="datetime" />
+        <one-to-many field="subtitles" target-entity="Subtitle" mapped-by="video">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <order-by>
+                <order-by-field name="language" direction="ASC" />
+            </order-by>
+        </one-to-many>
     </entity>
 </doctrine-mapping>

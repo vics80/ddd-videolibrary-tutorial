@@ -4,6 +4,7 @@
 namespace Videolibrary\Api\Application\Response\Video;
 
 
+use Videolibrary\Api\Application\Response\Subtitle\SubtitleCollectionResponse;
 use Videolibrary\Api\Domain\Model\Videos\Video;
 
 class VideoResponse
@@ -12,6 +13,7 @@ class VideoResponse
     private string $title;
     private int $duration;
     private string $status;
+    private SubtitleCollectionResponse $subtitles;
 
     public function __construct(Video $video)
     {
@@ -19,6 +21,7 @@ class VideoResponse
         $this->title = $video->title();
         $this->duration = $video->duration();
         $this->status = $video->status()->value();
+        $this->subtitles = new SubtitleCollectionResponse($video->subtitles());
     }
 
     public function id(): string
@@ -41,6 +44,11 @@ class VideoResponse
         return $this->status;
     }
 
+    public function subtitles(): SubtitleCollectionResponse
+    {
+        return $this->subtitles;
+    }
+
     public function toArray()
     {
         return [
@@ -48,6 +56,7 @@ class VideoResponse
             'title' => $this->title(),
             'duration' => $this->duration(),
             'status' => $this->status(),
+            'subtitles' => $this->subtitles()->toArray(),
         ];
     }
 }

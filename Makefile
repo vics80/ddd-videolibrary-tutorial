@@ -23,3 +23,9 @@ bash:
 	$(COMPOSE) run --rm api-videolibrary bash
 autoload:
 	$(COMPOSE) run --rm api-videolibrary composer dump-autoload
+db-create:
+	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:cre
+db-update-dump:
+	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:upd --dump-sql
+db-update-force:
+	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:upd --force

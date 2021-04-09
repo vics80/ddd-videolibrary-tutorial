@@ -4,6 +4,8 @@
 namespace Videolibrary\Api\Domain\Model\Videos;
 
 
+use Videolibrary\Api\Domain\Model\Subtitle\SubtitleCollection;
+
 class Video
 {
     private VideoId $id;
@@ -12,16 +14,19 @@ class Video
     private Status $status;
     private \DateTimeImmutable $createdAt;
     private \DateTime $updatedAt;
+    private SubtitleCollection $subtitles;
 
-    public function __construct(VideoId $id, string $title, int $duration, Status $status)
+    public function __construct(VideoId $id, string $title, int $duration, Status $status, SubtitleCollection $subtitles)
     {
         $this->id = $id;
         $this->title = $title;
         $this->duration = $duration;
         $this->status = $status;
+        $this->subtitles = $subtitles;
         $this->createdAt = new \DateTimeImmutable();
         $this->updatedAt = new \DateTime();
     }
+
 
     public function id(): VideoId
     {
@@ -51,6 +56,11 @@ class Video
     public function updatedAt(): \DateTime
     {
         return $this->updatedAt;
+    }
+
+    public function subtitles(): SubtitleCollection
+    {
+        return $this->subtitles;
     }
 
 }

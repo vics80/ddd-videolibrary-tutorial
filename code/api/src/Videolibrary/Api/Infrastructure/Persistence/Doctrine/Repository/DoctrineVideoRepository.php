@@ -2,7 +2,10 @@
 
 namespace Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
+use Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
+use Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Subtitle as SubtitleEntity;
 use Videolibrary\Api\Domain\Model\Videos\Status;
 use Videolibrary\Api\Domain\Model\Videos\Video;
 use Videolibrary\Api\Domain\Model\Videos\VideoId;
@@ -42,13 +45,28 @@ class DoctrineVideoRepository extends DoctrineRepository implements VideoReposit
 
     private function toInfrastructure(Video $video): VideoEntity
     {
-        return new VideoEntity(
+        $videoEntity = new VideoEntity(
             $video->id()->value(),
             $video->title(),
             $video->duration(),
             $video->status()->value(),
+            new ArrayCollection(),
             $video->createdAt(),
             $video->updatedAt()
+        );
+
+        foreach ($video->subtitles()->getCollection() as $subtitle) {
+            $videoEntity->addSubtitle($this->subtitleToInfrastructure($subtitle));
+        }
+
+        return $videoEntity;
+    }
+
+    private function subtitleToInfrastructure(Subtitle $subtitle): SubtitleEntity
+    {
+        return new SubtitleEntity(
+            $subtitle->id()->value(),
+            $subtitle->language()
         );
     }
 

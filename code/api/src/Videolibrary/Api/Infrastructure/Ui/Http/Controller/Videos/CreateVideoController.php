@@ -25,7 +25,8 @@ class CreateVideoController
             $video = ($this->createVideoHandler)(new CreateVideoRequest(
                 $request->get('title'),
                 $request->get('duration'),
-                $request->get('status')
+                $request->get('status'),
+                $request->get('subtitles')
             ));
 
             $response = new JsonResponse([
