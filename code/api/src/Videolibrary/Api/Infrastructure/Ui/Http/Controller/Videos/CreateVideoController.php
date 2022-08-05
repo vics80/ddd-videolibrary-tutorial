@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos;
+namespace App\Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos;
 
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Videolibrary\Api\Application\Command\Video\CreateVideoHandler;
-use Videolibrary\Api\Application\Request\Video\CreateVideoRequest;
-use Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
+use App\Videolibrary\Api\Application\Command\Video\CreateVideoHandler;
+use App\Videolibrary\Api\Application\Request\Video\CreateVideoRequest;
+use App\Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
 
 class CreateVideoController
 {
@@ -26,7 +26,8 @@ class CreateVideoController
                 $request->get('title'),
                 $request->get('duration'),
                 $request->get('status'),
-                $request->get('subtitles')
+                $request->get('subtitles'),
+                $request->get('image'),
             ));
 
             $response = new JsonResponse([

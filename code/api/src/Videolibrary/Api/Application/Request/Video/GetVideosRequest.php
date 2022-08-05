@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Application\Request\Video;
+namespace App\Videolibrary\Api\Application\Request\Video;
 
 
 class GetVideosRequest

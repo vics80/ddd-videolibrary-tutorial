@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain\Collection;
+namespace App\Videolibrary\Api\Domain\Collection;
 
 
 class InvalidCollectionObjectException extends \Exception

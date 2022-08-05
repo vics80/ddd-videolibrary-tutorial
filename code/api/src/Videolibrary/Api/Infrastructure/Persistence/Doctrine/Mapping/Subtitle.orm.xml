@@ -1,5 +1,5 @@
 <doctrine-mapping>
-    <entity name="Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Subtitle" table="subtitle">
+    <entity name="App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Subtitle" table="subtitle">
         <id name="id" type="guid" />
         <field name="language" type="string" length="2" />
         <many-to-one field="video" target-entity="Video" />

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos;
+namespace App\Videolibrary\Api\Infrastructure\Ui\Http\Controller\Videos;
 
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Videolibrary\Api\Application\Query\Video\GetVideosHandler;
-use Videolibrary\Api\Application\Request\Video\GetVideosRequest;
-use Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
+use App\Videolibrary\Api\Application\Query\Video\GetVideosHandler;
+use App\Videolibrary\Api\Application\Request\Video\GetVideosRequest;
+use App\Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
 
 class GetVideosController
 {

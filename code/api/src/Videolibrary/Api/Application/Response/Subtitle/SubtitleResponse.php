@@ -1,9 +1,9 @@
 <?php
 
-namespace Videolibrary\Api\Application\Response\Subtitle;
+namespace App\Videolibrary\Api\Application\Response\Subtitle;
 
 
-use Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
+use App\Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
 
 class SubtitleResponse
 {

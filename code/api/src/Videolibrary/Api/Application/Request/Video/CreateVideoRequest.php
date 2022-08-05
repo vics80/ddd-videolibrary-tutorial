@@ -1,24 +1,20 @@
 <?php
 
 
-namespace Videolibrary\Api\Application\Request\Video;
+namespace App\Videolibrary\Api\Application\Request\Video;
 
 
 class CreateVideoRequest
 {
-    private string $title;
-    private int $duration;
-    private string $status;
-    private array $subtitles;
-
-    public function __construct(string $title, int $duration, string $status, array $subtitles)
+    public function __construct(
+        private string $title,
+        private int $duration,
+        private string $status,
+        private array $subtitles,
+        private string $image,
+    )
     {
-        $this->title = $title;
-        $this->duration = $duration;
-        $this->status = $status;
-        $this->subtitles = $subtitles;
     }
-
 
     public function title(): string
     {
@@ -40,5 +36,9 @@ class CreateVideoRequest
         return $this->subtitles;
     }
 
+    public function image(): string
+    {
+        return $this->image;
+    }
 
 }

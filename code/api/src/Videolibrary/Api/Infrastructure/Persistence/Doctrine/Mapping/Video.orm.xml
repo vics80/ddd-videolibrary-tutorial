@@ -1,11 +1,12 @@
 <doctrine-mapping>
-    <entity name="Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Video" table="video">
+    <entity name="App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Video" table="video">
         <id name="id" type="guid" />
         <field name="title" type="string" length="300" />
         <field name="duration" type="integer" length="300" />
         <field name="status" type="string" length="20" />
         <field name="createdAt" type="datetime" />
-        <field name="updatedAt" type="datetime" />
+        <field name="updatedAt" type="datetime" nullable="true" />
+        <field name="image" type="string" length="200" />
         <one-to-many field="subtitles" target-entity="Subtitle" mapped-by="video">
             <cascade>
                 <cascade-persist/>

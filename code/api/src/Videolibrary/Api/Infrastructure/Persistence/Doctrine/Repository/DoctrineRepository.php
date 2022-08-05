@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository;
 
 
 use Doctrine\ORM\EntityManager;

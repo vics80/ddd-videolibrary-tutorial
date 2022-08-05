@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
+namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
 
 
 class Subtitle

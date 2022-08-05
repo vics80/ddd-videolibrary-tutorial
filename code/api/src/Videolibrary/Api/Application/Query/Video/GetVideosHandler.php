@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Videolibrary\Api\Application\Query\Video;
+namespace App\Videolibrary\Api\Application\Query\Video;
 
 
-use Videolibrary\Api\Application\Request\Video\GetVideosRequest;
-use Videolibrary\Api\Application\Response\Video\VideoCollectionResponse;
-use Videolibrary\Api\Domain\Model\Videos\Status;
-use Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Application\Request\Video\GetVideosRequest;
+use App\Videolibrary\Api\Application\Response\Video\VideoCollectionResponse;
+use App\Videolibrary\Api\Domain\Model\Videos\Status;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
 
 class GetVideosHandler
 {

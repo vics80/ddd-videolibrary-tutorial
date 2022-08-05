@@ -1,30 +1,23 @@
 <?php
 
-namespace Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
+namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
 
 use Doctrine\Common\Collections\Collection;
 
 class Video
 {
-    private string $id;
-    private string $title;
-    private int $duration;
-    private string $status;
-    private Collection $subtitles;
-    private \DateTimeInterface $createdAt;
-    private \DateTimeInterface $updatedAt;
-
-    public function __construct(string $id, string $title, int $duration, string $status, Collection $subtitles, \DateTimeInterface $createdAt, \DateTimeInterface $updatedAt)
+    public function __construct(
+        private string $id,
+        private string $title,
+        private int $duration,
+        private string $status,
+        private ?Collection $subtitles,
+        private \DateTimeInterface $createdAt,
+        private ?\DateTimeInterface $updatedAt,
+        private string $image,
+    )
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->duration = $duration;
-        $this->status = $status;
-        $this->subtitles = $subtitles;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }
-
 
     public function id(): string
     {
@@ -51,14 +44,19 @@ class Video
         return $this->createdAt;
     }
 
-    public function updatedAt(): \DateTimeInterface
+    public function updatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function subtitles(): Collection
+    public function subtitles(): ?Collection
     {
         return $this->subtitles;
+    }
+
+    public function image(): string
+    {
+        return $this->image;
     }
 
     public function addSubtitle(Subtitle $subtitle)

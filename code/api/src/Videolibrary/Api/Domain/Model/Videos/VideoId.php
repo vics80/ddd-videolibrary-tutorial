@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain\Model\Videos;
+namespace App\Videolibrary\Api\Domain\Model\Videos;
 
 
-use Videolibrary\Api\Domain\Id;
+use App\Videolibrary\Api\Domain\Id;
 
 class VideoId extends Id
 {

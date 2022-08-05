@@ -1,21 +1,31 @@
 {
     "type": "project",
     "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8.0.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "ramsey/uuid": "^4.1",
-        "symfony/console": "5.1.*",
-        "symfony/dotenv": "5.1.*",
-        "symfony/flex": "^1.3.1",
-        "symfony/framework-bundle": "5.1.*",
-        "symfony/orm-pack": "^2.0",
-        "symfony/yaml": "5.1.*"
-    },
-    "require-dev": {
+        "cocur/slugify": "^4.1",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.12",
+        "ramsey/uuid": "^4.3",
+        "symfony/console": "6.0.*",
+        "symfony/dotenv": "6.0.*",
+        "symfony/flex": "^2",
+        "symfony/framework-bundle": "6.0.*",
+        "symfony/proxy-manager-bridge": "6.0.*",
+        "symfony/runtime": "6.0.*",
+        "symfony/yaml": "6.0.*"
     },
     "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
         "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
@@ -24,7 +34,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Videolibrary\\": "src/Videolibrary",
             "App\\": "src/"
         }
     },
@@ -34,13 +43,12 @@
         }
     },
     "replace": {
-        "paragonie/random_compat": "2.*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -60,7 +68,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.1.*"
+            "require": "6.0.*"
         }
     }
 }

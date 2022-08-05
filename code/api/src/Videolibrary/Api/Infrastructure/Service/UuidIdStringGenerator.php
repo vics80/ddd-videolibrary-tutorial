@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Service;
+namespace App\Videolibrary\Api\Infrastructure\Service;
 
 
 use Ramsey\Uuid\Uuid;
-use Videolibrary\Api\Domain\Service\IdStringGenerator;
+use App\Videolibrary\Api\Domain\Service\IdStringGenerator;
 
 class UuidIdStringGenerator implements IdStringGenerator
 {

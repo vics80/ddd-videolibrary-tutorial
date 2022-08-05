@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Videolibrary\Api\Infrastructure\Persistence\InMemory\Repository;
+namespace App\Videolibrary\Api\Infrastructure\Persistence\InMemory\Repository;
 
 
-use Videolibrary\Api\Domain\Model\Videos\Status;
-use Videolibrary\Api\Domain\Model\Videos\Video;
-use Videolibrary\Api\Domain\Model\Videos\VideoCollection;
-use Videolibrary\Api\Domain\Model\Videos\VideoId;
-use Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Domain\Model\Videos\Status;
+use App\Videolibrary\Api\Domain\Model\Videos\Video;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoCollection;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoId;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
 
 class InMemoryVideoRepository implements VideoRepository
 {

@@ -14,5 +14,5 @@ doctrine:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/src/Videolibrary/Api/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: 'Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity'
+                prefix: 'App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity'
                 alias: Api

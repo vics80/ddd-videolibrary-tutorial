@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Videolibrary\Api\Application\Response\Video;
+namespace App\Videolibrary\Api\Application\Response\Video;
 
 
-use Videolibrary\Api\Domain\Model\Videos\VideoCollection;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoCollection;
 
 class VideoCollectionResponse
 {

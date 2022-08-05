@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain\Service;
+namespace App\Videolibrary\Api\Domain\Service;
 
 
 interface IdStringGenerator

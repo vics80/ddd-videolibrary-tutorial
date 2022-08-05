@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain\Model\Subtitle;
+namespace App\Videolibrary\Api\Domain\Model\Subtitle;
 
 
-use Videolibrary\Api\Domain\Id;
+use App\Videolibrary\Api\Domain\Id;
 
 class SubtitleId extends Id
 {

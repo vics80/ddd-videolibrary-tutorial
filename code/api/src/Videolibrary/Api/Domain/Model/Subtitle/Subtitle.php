@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain\Model\Subtitle;
+namespace App\Videolibrary\Api\Domain\Model\Subtitle;
 
 
-use Videolibrary\Api\Domain\Model\Videos\Video;
+use App\Videolibrary\Api\Domain\Model\Videos\Video;
 
 class Subtitle
 {

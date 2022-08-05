@@ -1,17 +1,16 @@
 <?php
 
-namespace Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Repository;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManager;
-use Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
-use Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Subtitle as SubtitleEntity;
-use Videolibrary\Api\Domain\Model\Videos\Status;
-use Videolibrary\Api\Domain\Model\Videos\Video;
-use Videolibrary\Api\Domain\Model\Videos\VideoId;
-use Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Video as VideoEntity;
-use Videolibrary\Api\Domain\Model\Videos\VideoCollection;
-use Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
+use App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Subtitle as SubtitleEntity;
+use App\Videolibrary\Api\Domain\Model\Videos\Status;
+use App\Videolibrary\Api\Domain\Model\Videos\Video;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoId;
+use App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity\Video as VideoEntity;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoCollection;
+use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
 
 class DoctrineVideoRepository extends DoctrineRepository implements VideoRepository
 {
@@ -52,7 +51,8 @@ class DoctrineVideoRepository extends DoctrineRepository implements VideoReposit
             $video->status()->value(),
             new ArrayCollection(),
             $video->createdAt(),
-            $video->updatedAt()
+            $video->updatedAt(),
+            $video->image(),
         );
 
         foreach ($video->subtitles()->getCollection() as $subtitle) {
@@ -78,7 +78,9 @@ class DoctrineVideoRepository extends DoctrineRepository implements VideoReposit
             $video->duration(),
             new Status($video->status()),
             $video->createdAt(),
-            $video->updatedAt()
+            $video->updatedAt(),
+            null,
+            $video->image()
         );
     }
 }

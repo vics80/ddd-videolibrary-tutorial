@@ -1,4 +1,4 @@
-JOB_NAME=?api
+JOB_NAME=videolibrary
 PROJECT_NAME=${JOB_NAME}
 USER_ID:=$(shell id -u)
 GROUP_ID:=$(shell id -g)
@@ -11,21 +11,35 @@ DOCKER_GID=$(GROUP_ID)
 up:
 	$(COMPOSE) build
 	$(COMPOSE) up -d
-refresh:
+down:
 	$(COMPOSE) down
-	$(COMPOSE) build
-	$(COMPOSE) up -d
+install:
+	make down
+	make up
+	make api-vendors-install
 reload:
 	$(COMPOSE) stop
-	$(COMPOSE) build
-	$(COMPOSE) up -d
-bash:
-	$(COMPOSE) run --rm api-videolibrary bash
+	make up
+api-bash:
+	docker exec -it $(PROJECT_NAME)_api_1 bash
+nginx-bash:
+	docker exec -it $(PROJECT_NAME)_nginx_1 bash
 autoload:
-	$(COMPOSE) run --rm api-videolibrary composer dump-autoload
+	docker exec -it $(PROJECT_NAME)_api_1 composer dump-autoload
 db-create:
-	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:cre
+	docker exec -it $(PROJECT_NAME)_api_1 sleep 10
+	docker exec -it $(PROJECT_NAME)_api_1 bin/console doc:mig:mig --no-interaction
 db-update-dump:
-	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:upd --dump-sql
+	docker exec -it $(PROJECT_NAME)_api_1 bin/console doc:sch:upd --dump-sql
 db-update-force:
-	$(COMPOSE) run --rm api-videolibrary bin/console doc:sch:upd --force
+	docker exec -it $(PROJECT_NAME)_api_1 bin/console doc:mig:mig --no-interaction
+db-migration-generate:
+	docker exec -it $(PROJECT_NAME)_api_1 bin/console doc:mig:gen
+db-migration-migrate:
+	docker exec -it $(PROJECT_NAME)_api_1 bin/console doc:mig:mig
+api-vendors-install:
+	docker exec -it $(PROJECT_NAME)_api_1 composer install
+api-vendor-require:
+	docker exec -it $(PROJECT_NAME)_api_1 composer require $(package)
+api-tests:
+	docker exec -it $(PROJECT_NAME)_api_1 vendor/bin/phpunit

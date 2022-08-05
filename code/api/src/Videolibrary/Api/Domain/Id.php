@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Videolibrary\Api\Domain;
+namespace App\Videolibrary\Api\Domain;
 
 
 class Id

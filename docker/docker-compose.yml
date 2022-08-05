@@ -1,22 +1,30 @@
 version: '3.6'
 services:
-  api-videolibrary:
-    build: api
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
     volumes:
       - ../code:/var/www/html/videolibrary
     links:
-      - db-videolibrary
-  nginx-videolibrary:
+      - db
+    networks:
+      - videolibrary
+  nginx:
     image: nginx:latest
     ports:
       - "80:80"
     volumes:
       - ../code:/var/www/html/videolibrary
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ../log:/var/log/videolibrary
     links:
-      - api-videolibrary
-  db-videolibrary:
+      - api
+    networks:
+      - videolibrary
+  db:
     image: library/mysql:latest
     restart: always
     ports:
@@ -26,3 +34,8 @@ services:
       - MYSQL_DATABASE=videolibrary
       - MYSQL_USER=videolibrary_user
       - MYSQL_PASSWORD=1234
+    networks:
+      - videolibrary
+networks:
+  videolibrary:
+    driver: bridge
