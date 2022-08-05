@@ -2,7 +2,11 @@
 
 namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
 
+use App\Videolibrary\Api\Domain\Model\Status\Status;
+use App\Videolibrary\Api\Domain\Model\Video\VideoId;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use App\Videolibrary\Api\Domain\Model\Video\Video as VideoDomain;
 
 class Video
 {
@@ -63,5 +67,41 @@ class Video
     {
         $subtitle->setVideo($this);
         $this->subtitles->add($subtitle);
+    }
+
+    public static function fromDomain(VideoDomain $video): self
+    {
+        $subtitles = new ArrayCollection();
+
+        if (!$video->subtitles()->isEmpty()) {
+            foreach ($video->subtitles()->getCollection() as $subtitle) {
+                $subtitles->add(Subtitle::fromDomain($subtitle));
+            }
+        }
+
+        return new self(
+            $video->id()->value(),
+            $video->title(),
+            $video->duration(),
+            $video->status()->value(),
+            $subtitles,
+            $video->createdAt(),
+            $video->updatedAt(),
+            $video->image()
+        );
+    }
+
+    public function toDomain(): VideoDomain
+    {
+        return new VideoDomain(
+            new VideoId($this->id()),
+            $this->title(),
+            $this->duration(),
+            new Status($this->status()),
+            $this->createdAt(),
+            $this->updatedAt(),
+            null,
+            $this->image()
+        );
     }
 }

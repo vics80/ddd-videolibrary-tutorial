@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Videolibrary\Api\Domain\Model\Videos;
+namespace App\Videolibrary\Api\Domain\Model\Status;
 
 
 class Status

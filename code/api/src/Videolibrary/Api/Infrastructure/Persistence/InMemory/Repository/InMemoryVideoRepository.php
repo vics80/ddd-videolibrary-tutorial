@@ -4,11 +4,11 @@
 namespace App\Videolibrary\Api\Infrastructure\Persistence\InMemory\Repository;
 
 
-use App\Videolibrary\Api\Domain\Model\Videos\Status;
-use App\Videolibrary\Api\Domain\Model\Videos\Video;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoCollection;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoId;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Domain\Model\Status\Status;
+use App\Videolibrary\Api\Domain\Model\Video\Video;
+use App\Videolibrary\Api\Domain\Model\Video\VideoCollection;
+use App\Videolibrary\Api\Domain\Model\Video\VideoId;
+use App\Videolibrary\Api\Domain\Model\Video\VideoRepository;
 
 class InMemoryVideoRepository implements VideoRepository
 {

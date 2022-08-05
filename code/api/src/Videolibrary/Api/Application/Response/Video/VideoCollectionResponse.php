@@ -4,7 +4,7 @@
 namespace App\Videolibrary\Api\Application\Response\Video;
 
 
-use App\Videolibrary\Api\Domain\Model\Videos\VideoCollection;
+use App\Videolibrary\Api\Domain\Model\Video\VideoCollection;
 
 class VideoCollectionResponse
 {

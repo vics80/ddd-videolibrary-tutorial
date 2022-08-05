@@ -1,8 +1,10 @@
 <?php
 
 
-namespace App\Videolibrary\Api\Domain\Model\Videos;
+namespace App\Videolibrary\Api\Domain\Model\Video;
 
+
+use App\Videolibrary\Api\Domain\Model\Status\Status;
 
 interface VideoRepository
 {

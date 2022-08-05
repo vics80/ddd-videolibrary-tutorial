@@ -6,8 +6,8 @@ namespace App\Videolibrary\Api\Application\Query\Video;
 
 use App\Videolibrary\Api\Application\Request\Video\GetVideosRequest;
 use App\Videolibrary\Api\Application\Response\Video\VideoCollectionResponse;
-use App\Videolibrary\Api\Domain\Model\Videos\Status;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Domain\Model\Status\Status;
+use App\Videolibrary\Api\Domain\Model\Video\VideoRepository;
 
 class GetVideosHandler
 {

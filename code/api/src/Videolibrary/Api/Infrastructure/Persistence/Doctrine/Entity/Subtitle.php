@@ -3,6 +3,7 @@
 
 namespace App\Videolibrary\Api\Infrastructure\Persistence\Doctrine\Entity;
 
+use App\Videolibrary\Api\Domain\Model\Subtitle\Subtitle as SubtitleDomain;
 
 class Subtitle
 {
@@ -36,5 +37,11 @@ class Subtitle
         $this->video = $video;
     }
 
-
+    public static function fromDomain(SubtitleDomain $subtitle): self
+    {
+        return new self(
+            $subtitle->id()->value(),
+            $subtitle->language()
+        );
+    }
 }

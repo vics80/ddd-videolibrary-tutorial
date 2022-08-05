@@ -4,7 +4,7 @@
 namespace App\Videolibrary\Api\Domain\Model\Subtitle;
 
 
-use App\Videolibrary\Api\Domain\Model\Videos\Video;
+use App\Videolibrary\Api\Domain\Model\Video\Video;
 
 class Subtitle
 {

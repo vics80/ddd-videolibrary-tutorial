@@ -10,10 +10,10 @@ use App\Videolibrary\Api\Application\Response\Video\VideoResponse;
 use App\Videolibrary\Api\Domain\Model\Subtitle\Subtitle;
 use App\Videolibrary\Api\Domain\Model\Subtitle\SubtitleCollection;
 use App\Videolibrary\Api\Domain\Model\Subtitle\SubtitleId;
-use App\Videolibrary\Api\Domain\Model\Videos\Status;
-use App\Videolibrary\Api\Domain\Model\Videos\Video;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoId;
-use App\Videolibrary\Api\Domain\Model\Videos\VideoRepository;
+use App\Videolibrary\Api\Domain\Model\Status\Status;
+use App\Videolibrary\Api\Domain\Model\Video\Video;
+use App\Videolibrary\Api\Domain\Model\Video\VideoId;
+use App\Videolibrary\Api\Domain\Model\Video\VideoRepository;
 use App\Videolibrary\Api\Domain\Service\IdStringGenerator;
 
 class CreateVideoHandler

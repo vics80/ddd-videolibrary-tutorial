@@ -5,7 +5,7 @@ namespace App\Videolibrary\Api\Application\Response\Video;
 
 
 use App\Videolibrary\Api\Application\Response\Subtitle\SubtitleCollectionResponse;
-use App\Videolibrary\Api\Domain\Model\Videos\Video;
+use App\Videolibrary\Api\Domain\Model\Video\Video;
 
 class VideoResponse
 {

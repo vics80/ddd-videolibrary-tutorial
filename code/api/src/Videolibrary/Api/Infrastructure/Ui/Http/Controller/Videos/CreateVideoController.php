@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Videolibrary\Api\Application\Command\Video\CreateVideoHandler;
 use App\Videolibrary\Api\Application\Request\Video\CreateVideoRequest;
-use App\Videolibrary\Api\Domain\Model\Videos\InvalidStatusValueException;
+use App\Videolibrary\Api\Domain\Model\Video\InvalidStatusValueException;
 
 class CreateVideoController
 {
