@@ -93,15 +93,14 @@ class Video
 
     public function toDomain(): VideoDomain
     {
-        return new VideoDomain(
-            new VideoId($this->id()),
+        return VideoDomain::fromPrimitive(
+            $this->id(),
             $this->title(),
             $this->duration(),
-            new Status($this->status()),
+            $this->status(),
             $this->createdAt(),
             $this->updatedAt(),
-            null,
-            $this->image()
+            $this->image(),
         );
     }
 }

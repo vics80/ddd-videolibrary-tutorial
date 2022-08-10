@@ -8,6 +8,10 @@ class Status
 {
     private string $value;
 
+    const PUBLISHED = 'published';
+    const PENDING = 'pending';
+    const REMOVED = 'removed';
+
     const ALLOWED_VALUES = [
         'pending',
         'published',
@@ -31,5 +35,20 @@ class Status
     public function equals(Status $status)
     {
         return $this->value() === $status->value();
+    }
+
+    public static function makePublished(): self
+    {
+        return new self(self::PUBLISHED);
+    }
+
+    public static function makePending(): self
+    {
+        return new self(self::PENDING);
+    }
+
+    public static function makeRemoved(): self
+    {
+        return new self(self::REMOVED);
     }
 }

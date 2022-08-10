@@ -9,7 +9,6 @@ class CreateVideoRequest
     public function __construct(
         private string $title,
         private int $duration,
-        private string $status,
         private array $subtitles,
         private string $image,
     )
@@ -24,11 +23,6 @@ class CreateVideoRequest
     public function duration(): int
     {
         return $this->duration;
-    }
-
-    public function status(): string
-    {
-        return $this->status;
     }
 
     public function subtitles(): array

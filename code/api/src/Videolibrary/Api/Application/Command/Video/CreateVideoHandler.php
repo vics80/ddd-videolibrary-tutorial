@@ -30,15 +30,12 @@ class CreateVideoHandler
 
     public function __invoke(CreateVideoRequest $createVideoRequest): VideoResponse
     {
-        $video = new Video(
+        $video = Video::create(
             new VideoId($this->idStringGenerator->generate()),
             $createVideoRequest->title(),
             $createVideoRequest->duration(),
-            new Status($createVideoRequest->status()),
-            new \DateTimeImmutable(),
-            null,
-            $this->buildSubtitleCollection($createVideoRequest->subtitles()),
             $createVideoRequest->image(),
+            $this->buildSubtitleCollection($createVideoRequest->subtitles())
         );
 
         $this->videoRepository->insert($video);
